@@ -1,0 +1,18 @@
+{
+  "name": "mypersonalcli-api",
+  "version": "0.0.1",
+  "description": "my personal cli rest api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon app.js"
+  },
+  "author": "Leandro Alves",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.17.1",
+    "mongoose": "^4.4.3",
+    "mysql": "^2.13.0"
+  }
+}
