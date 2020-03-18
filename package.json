@@ -10,6 +10,7 @@
   "author": "Leandro Alves",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
     "express": "^4.17.1",
     "mongoose": "^4.4.3",
