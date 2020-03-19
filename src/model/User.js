@@ -39,7 +39,7 @@ const UserSchema = new mongoose.Schema({
         deafult: Date.now
     },
     status: {
-        type: String,
+        type: Boolean,
         required: true
     } 
 })

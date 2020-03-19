@@ -11,9 +11,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./src/controller/authController')(app);
+require('./src/controller/projectController')(app);
 
 let server = app.listen(3000, function () {
- let host = server.address().address;
+ //let host = server.address().address;
+ let host = "localhost";
  let port = server.address().port;
  console.log("Servidor iniciado em http://%s:%s", host, port);
 });
