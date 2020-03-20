@@ -7,9 +7,6 @@ const authConfig = require('../../config/auth');
 const mailer = require('../../modules/mailer' )
 const router = express.Router();
 
-
-
-
 //ROUTES
 //ROOT
 router.get('/', async (req, res) => {
@@ -112,6 +109,8 @@ router.post('/resert_password', async (req, res) => {
         user.password = password;
 
         await user.save();
+
+        res.send()
 
     } catch (err) {
         return res.status(400).send({ error: 'Error! Cannot reset password. Try again.' })
