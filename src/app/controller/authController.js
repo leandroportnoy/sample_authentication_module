@@ -9,28 +9,31 @@ const router = express.Router();
 
 //ROUTES
 //ROOT
-router.get('/', async (req, res) => {
-    return res.status(200).send({ msg: "up" });
-})
+// router.get('/', async (req, res) => {
+//     return res.status(200).send({ msg: "up" });
+// })
 
 // REGISTER
 router.post('/register', async (req, res) => {
+    
     const { email } = req.body
     try {
-        if (await User.findOne(email))
-            return res.status(400).send ( { errorMsg: "User already exist" })
+        if (await User.findOne({ email }))
+            return res.status(400).send({ errorMsg: "User already exist" })
 
         const user = await User.create(req.body);
         user.password = undefined; //hidden password
-
+    
         return res.send ({ user });
     } catch (err) {
-        return res.status(400).send ( { errorMsg: "Registrarion failed"})
+        console.log ("Error detail: " + err)
+        return res.status(400).send ( { errorMsg: "Registration failed"})
     }
 })
 
 // AUTHENTICATE
 router.post('/authenticate', async (req, res) => {
+    
     const {email, password } = req.body;
     const user = await User.findOne({ email }).select('+password')
 
@@ -69,20 +72,20 @@ router.post('/forgot_password', async (req, res) => {
                 passwordResetExpires: now
             }
         })
-
         //send mail
-        mailer.sendEmail({
+        mailer.sendMail({
             to: email,
             from: 'leandroportnoy@gmail.com',
             templates: 'auth/forgot_password',
             context: { token }
-        }), (err) => {
+        }, (err) => {
             if (err)
-                return res.status(400).send({ error: "Cannot send forgot passrod email"})
-        }
+                return res.status(400).send({ error: "Cannot send forgot password email"});
+        })
 
-
+        res.send("ok")
     } catch (err) {
+        console.log(err)
         return res.status(400).send({ errorMsg: "error on forgot password" });
     }
 })
