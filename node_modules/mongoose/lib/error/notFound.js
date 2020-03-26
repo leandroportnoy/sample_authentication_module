@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-const MongooseError = require('./');
-const util = require('util');
+var MongooseError = require('./');
+var util = require('util');
 
 /*!
  * OverwriteModel Error constructor.
@@ -13,32 +13,27 @@ const util = require('util');
  * @inherits MongooseError
  */
 
-function DocumentNotFoundError(filter, model, numAffected, result) {
-  let msg;
-  const messages = MongooseError.messages;
+function DocumentNotFoundError(query) {
+  var msg;
+  var messages = MongooseError.messages;
   if (messages.DocumentNotFoundError != null) {
     msg = typeof messages.DocumentNotFoundError === 'function' ?
-      messages.DocumentNotFoundError(filter, model) :
+      messages.DocumentNotFoundError(query) :
       messages.DocumentNotFoundError;
   } else {
-    msg = 'No document found for query "' + util.inspect(filter) +
-      '" on model "' + model + '"';
+    msg = 'No document found for query "' + util.inspect(query) + '"';
   }
 
   MongooseError.call(this, msg);
 
   this.name = 'DocumentNotFoundError';
-  this.result = result;
-  this.numAffected = numAffected;
   if (Error.captureStackTrace) {
     Error.captureStackTrace(this);
   } else {
     this.stack = new Error().stack;
   }
 
-  this.filter = filter;
-  // Backwards compat
-  this.query = filter;
+  this.query = query;
 }
 
 /*!

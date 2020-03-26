@@ -2,10 +2,8 @@
  * Dependencies
  */
 
-'use strict';
-
-const StateMachine = require('./statemachine');
-const ActiveRoster = StateMachine.ctor('require', 'modify', 'init', 'default', 'ignore');
+var StateMachine = require('./statemachine');
+var ActiveRoster = StateMachine.ctor('require', 'modify', 'init', 'default', 'ignore');
 
 module.exports = exports = InternalCache;
 
@@ -18,7 +16,6 @@ function InternalCache() {
   this.adhocPaths = undefined;
   this.removing = undefined;
   this.inserting = undefined;
-  this.saving = undefined;
   this.version = undefined;
   this.getters = {};
   this._id = undefined;
@@ -28,9 +25,6 @@ function InternalCache() {
   this.scope = undefined;
   this.activePaths = new ActiveRoster;
   this.pathsToScopes = {};
-  this.cachedRequired = {};
-  this.session = null;
-  this.$setCalled = new Set();
 
   // embedded docs
   this.ownerDocument = undefined;
