@@ -6,6 +6,7 @@ const User = require('../model/User'); //class
 const authConfig = require('../../config/auth');
 const mailer = require('../../modules/mailer' )
 const router = express.Router();
+var HttpStatus = require('http-status-codes')
 
 //ROUTES
 //ROOT
@@ -19,7 +20,7 @@ router.post('/register', async (req, res) => {
     const { email } = req.body
     try {
         if (await User.findOne({ email }))
-            return res.status(400).send({ errorMsg: "User already exist" })
+            return res.status(HttpStatus.UNPROCESSABLE_ENTITY).send({ errorMsg: "User already exist" })
 
         const user = await User.create(req.body);
         user.password = undefined; //hidden password
@@ -37,11 +38,8 @@ router.post('/authenticate', async (req, res) => {
     const {email, password } = req.body;
     const user = await User.findOne({ email }).select('+password')
 
-    if (!user)
-        return res.status(400).send({ errorMsg: "user not found" });
-
-    if (!await bcrypt.compare(password, user.password))
-        return res.status(400).send({ errorMsg: "Invalid password" });
+    if (!user || !await bcrypt.compare(password, user.password))
+        return res.status(HttpStatus.UNPROCESSABLE_ENTITY).send({ errorMsg: "Invalid User or Password" });
 
     user.password = undefined
 
@@ -60,7 +58,7 @@ router.post('/forgot_password', async (req, res) => {
         const user = await User.findOne({ email })
 
         if (!user)
-            return res.status(400).send({ errorMsg: "email not found" });
+            return res.status(HttpStatus.UNPROCESSABLE_ENTITY).send({ errorMsg: "email not found" });
 
         const token = crypto.randomBytes(20).toString('hex')
         const now = new Date()
@@ -80,13 +78,13 @@ router.post('/forgot_password', async (req, res) => {
             context: { token }
         }, (err) => {
             if (err)
-                return res.status(400).send({ error: "Cannot send forgot password email"});
+                return res.status(HttpStatus.UNPROCESSABLE_ENTITY).send({ error: "Cannot send forgot password email"});
         })
 
         res.send("ok")
     } catch (err) {
         console.log(err)
-        return res.status(400).send({ errorMsg: "error on forgot password" });
+        return res.status(HttpStatus.UNPROCESSABLE_ENTITY).send({ errorMsg: "error on forgot password" });
     }
 })
 
@@ -116,7 +114,7 @@ router.post('/resert_password', async (req, res) => {
         res.send()
 
     } catch (err) {
-        return res.status(400).send({ error: 'Error! Cannot reset password. Try again.' })
+        return res.status(HttpStatus.UNPROCESSABLE_ENTITY).send({ error: 'Error! Cannot reset password. Try again.' })
     }
 
 })
