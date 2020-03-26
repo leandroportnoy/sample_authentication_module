@@ -13,6 +13,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
     "express": "^4.17.1",
+<<<<<<< Updated upstream
     "fs": "^0.0.1-security",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
@@ -22,5 +23,10 @@
     "nodemailer-express-handlebars": "^3.3.0",
     "npm": "^6.14.3",
     "path": "^0.12.7"
+=======
+    "http-status-codes": "^1.4.0",
+    "mongoose": "^5.9.6",
+    "mysql": "^2.13.0"
+>>>>>>> Stashed changes
   }
 }
