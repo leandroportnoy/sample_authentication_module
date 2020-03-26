@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-const MongooseError = require('./');
+var MongooseError = require('./');
 
 /**
  * Version Error constructor.
@@ -14,7 +14,7 @@ const MongooseError = require('./');
  */
 
 function VersionError(doc, currentVersion, modifiedPaths) {
-  const modifiedPathsStr = modifiedPaths.join(', ');
+  var modifiedPathsStr = modifiedPaths.join(', ');
   MongooseError.call(this, 'No matching document found for id "' + doc._id +
     '" version ' + currentVersion + ' modifiedPaths "' + modifiedPathsStr + '"');
   this.name = 'VersionError';

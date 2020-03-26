@@ -21,9 +21,7 @@
  * @api public
  */
 
-'use strict';
-
-const msg = module.exports = exports = {};
+var msg = module.exports = exports = {};
 
 msg.DocumentNotFoundError = null;
 
@@ -34,7 +32,6 @@ msg.general.required = 'Path `{PATH}` is required.';
 msg.Number = {};
 msg.Number.min = 'Path `{PATH}` ({VALUE}) is less than minimum allowed value ({MIN}).';
 msg.Number.max = 'Path `{PATH}` ({VALUE}) is more than maximum allowed value ({MAX}).';
-msg.Number.enum = '`{VALUE}` is not a valid enum value for path `{PATH}`.';
 
 msg.Date = {};
 msg.Date.min = 'Path `{PATH}` ({VALUE}) is before minimum allowed value ({MIN}).';

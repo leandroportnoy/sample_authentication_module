@@ -2,9 +2,7 @@
  * Module dependencies.
  */
 
-'use strict';
-
-const MongooseError = require('./');
+var MongooseError = require('./');
 
 /**
  * Strict mode error constructor
@@ -15,12 +13,11 @@ const MongooseError = require('./');
  * @api private
  */
 
-function StrictModeError(path, msg, immutable) {
+function StrictModeError(path, msg) {
   msg = msg || 'Field `' + path + '` is not in schema and strict ' +
     'mode is set to throw.';
   MongooseError.call(this, msg);
   this.name = 'StrictModeError';
-  this.isImmutableError = !!immutable;
   if (Error.captureStackTrace) {
     Error.captureStackTrace(this);
   } else {

@@ -2,9 +2,7 @@
  * Module dependencies.
  */
 
-'use strict';
-
-const MongooseError = require('./');
+var MongooseError = require('./');
 
 /**
  * Strict mode error constructor
@@ -16,9 +14,8 @@ const MongooseError = require('./');
  */
 
 function ObjectExpectedError(path, val) {
-  const typeDescription = Array.isArray(val) ? 'array' : 'primitive value';
   MongooseError.call(this, 'Tried to set nested object field `' + path +
-    `\` to ${typeDescription} \`` + val + '` and strict mode is set to throw.');
+    '` to primitive value `' + val + '` and strict mode is set to throw.');
   this.name = 'ObjectExpectedError';
   if (Error.captureStackTrace) {
     Error.captureStackTrace(this);

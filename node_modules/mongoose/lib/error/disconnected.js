@@ -2,13 +2,10 @@
  * Module dependencies.
  */
 
-'use strict';
-
-const MongooseError = require('./');
+var MongooseError = require('./');
 
 /**
- * The connection failed to reconnect and will never successfully reconnect to
- * MongoDB without manual intervention.
+ * Casting Error constructor.
  *
  * @param {String} type
  * @param {String} value
