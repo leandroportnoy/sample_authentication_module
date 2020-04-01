@@ -10,7 +10,13 @@ app.disable('etag');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-require('./app/controller/index')(app);
+//all controllers - old
+//auth
+// require('./app/controller/index')(app);
+
+//Users
+const userRoute = require('./app/routes/users/index')
+app.use('/user/', userRoute)
 
 app.get('/', (req, res) => { 
     res.send('server up')

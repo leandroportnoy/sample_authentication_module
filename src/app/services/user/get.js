@@ -18,7 +18,7 @@ exports.get = async function() {
 exports.getById = async function(id) {
 
     try { 
-        const user = await User.find(id);
+        const user = await User.findById(id);
         user.password = undefined;
 
         return user;
