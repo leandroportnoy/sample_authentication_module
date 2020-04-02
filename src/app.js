@@ -1,7 +1,6 @@
 let express = require('express');
 // configure for param reader suing form-urlencoded and application/json
 var bodyParser = require('body-parser');
-
 const app = express();
 
 //disable cache from express
@@ -10,7 +9,15 @@ app.disable('etag');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-require('./app/controller/index')(app);
+//all controllers - old
+//auth
+const authRoute = require('./app/routes/users/index')
+app.use(authRoute)
+//require('./app/controller/index')(app);
+
+//Users
+const userRoute = require('./app/routes/users/index')
+app.use('/user/', userRoute)
 
 app.get('/', (req, res) => { 
     res.send('server up')
