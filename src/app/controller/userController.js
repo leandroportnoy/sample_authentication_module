@@ -4,7 +4,7 @@ const httpStatus = require('http-status-codes')
 const authMiddleware = require('../middlewares/auth')
 const router = express.Router();
 
-var UserService = require('../services/user/get')    
+var UserService = require('../services/user/index')
 
 //OAuth
 router.use(authMiddleware);
@@ -12,7 +12,7 @@ router.use(authMiddleware);
 //all
 exports.get_users = async function (req, res) {
     try { 
-        const users = await UserService.get()
+        const users = await UserService.getUsers()
         return res.send ({ users });
     } catch(err) {
         console.log ("Error detail: " + err)
@@ -23,7 +23,7 @@ exports.get_users = async function (req, res) {
 // by id
 exports.get_user = async function (req, res) {
     try { 
-        const user = await UserService.getById(req.params.id);
+        const user = await UserService.getUserById(req.params.id);
         return res.send ( user );
     } catch(err) {
         console.log ("Error detail: " + err)
@@ -33,45 +33,39 @@ exports.get_user = async function (req, res) {
 }
 
 // //update
-// exports.update = async function (req, res) {
+exports.update = async function (req, res) {
 
-//     try { 
-//         const user = await UserService.update()
-//         return user;
+    try {
+        const user = await UserService.updateUser(req)
+        
+        if (user == null)
+            return res.status(httpStatus.BAD_REQUEST).send ( { error: "User not found"})
 
-//     } catch(err) {
-//         console.log ("Error detail: " + err)
-//         return res.status(httpStatus.BAD_REQUEST).send ( { error: "Update user failed"})
+        return res.send ( { user, message: "user updated with success" });
 
-//     }
-// }
+    } catch(err) {
+        console.log ("Error detail: " + err)
+        return res.status(httpStatus.BAD_REQUEST).send ( { error: "Error on update: user failed"})
+
+    }
+}
 
 // //delete
-// exports.delete = async function (req, res) {
+exports.delete = async function (req, res) {
 
-//     try { 
-//         const user = await UserService.delete(req.params.id, {
-//             status: false
-//         }, { new: true }
-//         );
+    try { 
+        const user = await UserService.deteleUser(req)
+        if (!user)
+            return res.status(httpStatus.BAD_REQUEST).send ( { error: "Error on delete: user not found"})
 
-//         // return user;
-//         // const user = await User.findByIdAndUpdate(req.params.id, {
-//         //     status: false
-//         // }, { new: true }
-//         // );
+        return res.status(httpStatus.ACCEPTED).send({ message: "user removed with success" });
 
-// //        await user.save();
-//   //      user.password = undefined; //hidden password
+    } catch(err) {
+        console.log ("Error detail: " + err)
+        return res.status(httpStatus.BAD_REQUEST).send ( { error: "user remove failed"})
 
-//         return "user removed";
-
-//     } catch(err) {
-//         console.log ("Error detail: " + err)
-//         return res.status(httpStatus.BAD_REQUEST).send ( { error: "user remove failed"})
-
-//     }
-// }
+    }
+}
 // });
 
 // module.exports = app => app.use('/user', router);
