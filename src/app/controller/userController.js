@@ -1,13 +1,12 @@
 const express = require('express');
 const User = require('../model/User'); //class
 const httpStatus = require('http-status-codes')
-const authMiddleware = require('../middlewares/auth')
-const router = express.Router();
-
 var UserService = require('../services/user/index')
+//const authMiddleware = require('../middlewares/auth')
+//const router = express.Router();
 
 //OAuth
-router.use(authMiddleware);
+//router.use(authMiddleware);
 
 //all
 exports.get_users = async function (req, res) {

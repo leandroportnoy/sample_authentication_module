@@ -1,7 +1,6 @@
 let express = require('express');
 // configure for param reader suing form-urlencoded and application/json
 var bodyParser = require('body-parser');
-
 const app = express();
 
 //disable cache from express
@@ -12,7 +11,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //all controllers - old
 //auth
-// require('./app/controller/index')(app);
+const authRoute = require('./app/routes/users/index')
+app.use(authRoute)
+//require('./app/controller/index')(app);
 
 //Users
 const userRoute = require('./app/routes/users/index')
