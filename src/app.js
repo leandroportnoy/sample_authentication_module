@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //all controllers - old
 //auth
 const authRoute = require('./app/routes/users/index')
-app.use(authRoute)
+app.use('/auth/',authRoute)
 //require('./app/controller/index')(app);
 
 //Users
