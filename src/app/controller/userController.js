@@ -31,7 +31,7 @@ exports.get_user = async function (req, res) {
     }
 }
 
-// //update
+// update
 exports.update = async function (req, res) {
 
     try {
@@ -49,7 +49,7 @@ exports.update = async function (req, res) {
     }
 }
 
-// //delete
+// delete
 exports.delete = async function (req, res) {
 
     try { 
@@ -65,6 +65,3 @@ exports.delete = async function (req, res) {
 
     }
 }
-// });
-
-// module.exports = app => app.use('/user', router);

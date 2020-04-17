@@ -7,7 +7,7 @@ var AuthController = require('../../controller/authController')
 //router.use(authMiddleware);
 
 router.post('/register', AuthController.register)
-// router.post('/authenticate', AuthController.authenticate)
+router.post('/authenticate', AuthController.authentication)
 // router.post('/resetPassword', AuthController.resetPassword)
 // router.post('/forgotPassword', AuthController.forgotPassword)
 
