@@ -7,8 +7,8 @@ var AuthController = require('../../controller/authController')
 //router.use(authMiddleware);
 
 router.post('/register', AuthController.register)
-router.post('/authenticate', AuthController.authenticate)
-router.post('/resetPassword', AuthController.resetPassword)
-router.post('/forgotPassword', AuthController.forgotPassword)
+// router.post('/authenticate', AuthController.authenticate)
+// router.post('/resetPassword', AuthController.resetPassword)
+// router.post('/forgotPassword', AuthController.forgotPassword)
 
 module.exports = router;
