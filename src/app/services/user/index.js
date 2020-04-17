@@ -31,6 +31,8 @@ const getUserById = async function(id) {
 
 const updateUser = async function (req) {
 
+    console.log(req.params.id)
+
     try {
         const { name, lastname, email, cellphone, crefito, status } = req.body;
         const user = await User.findByIdAndUpdate(req.params.id, {
@@ -79,9 +81,40 @@ const deteleUser = async function(req) {
     }
 }
 
+const getUserByEmail = async function(req) {
+    try {
+        const { email } = req.body
+        const user = await User.findOne({ email })
+    
+        return user
+    } catch(err) {
+        console.log ("Error detail: " + err)
+        throw Error('Find user by email failed')
+    }
+}
+
+const createUser = async function(req) {
+    try { 
+        const user = await User.create(req.body);
+        user.password = undefined; //hidden password
+    
+        return user
+
+    } catch(err) {
+        console.log ("Error detail: " + err)
+        throw Error('Create user failed')
+    }
+}
+
+const getAuthenticatedUser = async function(req) {
+    
+}
+
 module.exports = {
+    createUser,
     getUsers,
     getUserById,
+    getUserByEmail,
     updateUser,
     deteleUser
 }

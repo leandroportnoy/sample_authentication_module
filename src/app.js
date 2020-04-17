@@ -11,9 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //all controllers - old
 //auth
-const authRoute = require('./app/routes/users/index')
-app.use(authRoute)
-//require('./app/controller/index')(app);
+const authRoute = require('./app/routes/auth/index')
+app.use('/auth/', authRoute) 
 
 //Users
 const userRoute = require('./app/routes/users/index')
