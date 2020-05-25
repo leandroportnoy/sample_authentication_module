@@ -12,11 +12,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //all controllers - old
 //auth
 const authRoute = require('./app/routes/auth/index')
-app.use('/auth/', authRoute) 
+// app.use('/auth/', authRoute) 
 
 //Users
-const userRoute = require('./app/routes/users/index')
-app.use('/user/', userRoute)
+// const userRoute = require('./app/routes/users/index')
+//app.use('/user/', userRoute)
 
 app.get('/', (req, res) => { 
     res.send('server up')
