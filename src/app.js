@@ -9,7 +9,7 @@ app.disable('etag');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//all controllers - old
+//all controllers
 //auth
 const authRoute = require('./app/routes/auth/index')
 app.use('/auth/', authRoute) 

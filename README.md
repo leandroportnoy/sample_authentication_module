@@ -1,22 +1,24 @@
 # PersonalClis API Service
 
 <p align="center">
-  <img width="200" height="auto" src=".github/logo.png"/>
+  <img width="200" height="auto" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbognarjunior.wordpress.com%2F2016%2F01%2F16%2Fnodejs-file-system-trabalhando-com-arquivos%2F&psig=AOvVaw1WYg4-sAwT2jYw1wbqpDGL&ust=1643574391912000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJCv9fHl1_UCFQAAAAAdAAAAABAK"/>
 </p>
 
-This is a project to backend for PersonalClis App
+This project is a simple project using Node. This API is a simple example of how to authenticate, register and query users.
 
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
-- You have installed the [Node.js](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/)
+- [Docker]
+- [MongoDB]
+- [Visual Studio Code]
+## Installing and execute with YARN
 
-## Installing and execute with NPM
-
-1. Clone this repository. `$ git clone https://github.com/leandroportnoy/MyPersonalClis-App.git`
-2. Go to the project folder. `$ cd mypsersonalcli_api`
-3. execute npm start to run
+1. Clone this repository. `$ git clone https://github.com/leandroportnoy/sample_authentication_module.git`
+2. Go to the project folder. `$ cd sample_authentication_module`
+3. execute yarn start to run
 4. Access your browser with localhost:3000
 
 ##Projects Module
@@ -24,27 +26,9 @@ Before you begin, ensure you have met the following requirements:
   Modules in Project
   - users
     - sign in
-    - reset password
-  
-  - logged area
-    - sign up
-    - logout
-    - students
-      - new student
-      - edit student
-    - training
-      - new training
-      - edit training
-      - signature
-      - finalize training
-    - user
-      - edit
-      - cancel signature
-
- Routes:
-  - default router
-  - sign in (add new users)
-  - reset Password (under construction)
+    - register
+    - reset password (under construction)
+    - edit user
 
 Project in Node using
   - Nodemon
@@ -54,13 +38,9 @@ Project in Node using
 
 ## Contributors
 
-Thanks to the following people who have contributed to this project:
-
-- [@leandroportnoy](https://github.com/leandroportnoy)
-- [@enzoserafim](https://github.com/enzoserafim)
+No one, until now! :) Help me to improve my skills in Node, so feel free!
 
 ## Contact
-
 If you want to contact me you can reach me at <leandroportnoy@gmail.com>.
 
 ## License
