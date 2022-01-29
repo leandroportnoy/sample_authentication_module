@@ -1,5 +1,5 @@
 let express = require('express');
-// configure for param reader suing form-urlencoded and application/json
+// configure for param reader using form-urlencoded and application/json
 var bodyParser = require('body-parser');
 const app = express();
 
@@ -12,11 +12,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //all controllers - old
 //auth
 const authRoute = require('./app/routes/auth/index')
-// app.use('/auth/', authRoute) 
+app.use('/auth/', authRoute) 
 
 //Users
-// const userRoute = require('./app/routes/users/index')
-//app.use('/user/', userRoute)
+const userRoute = require('./app/routes/users/index')
+app.use('/user/', userRoute)
+
 
 app.get('/', (req, res) => { 
     res.send('server up')

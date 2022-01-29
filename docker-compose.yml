@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:4.1.8-xenial
+    container_name: mongodb
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - '27017:27017'
+    volumes:
+      - /Users/leandroalves/mongodb/database:/data/db
+
+#       version: "3.8"
+# services:
+# mongodb:
+# image : mongo
+# container_name: mongodb
+# environment:
+# - PUID=1000
+# - PGID=1000
+# volumes:
+# - /home/barry/mongodb/database:/data/db
+# ports:
+# - 27017:27017
+# restart: unless-stopped

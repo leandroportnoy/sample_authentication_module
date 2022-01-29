@@ -21,9 +21,6 @@ const UserSchema = new mongoose.Schema({
     cellphone: {
         type: String
     },
-    crefito: {
-        type: String
-    },
     createdAt: {
         type: Date,
         deafult: Date.now

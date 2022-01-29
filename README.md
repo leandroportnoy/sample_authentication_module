@@ -14,7 +14,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installing and execute with NPM
 
-1. Clone this repository. `$ git clone https://github.com/malaquiasdev/pidove-mail-service.git`
+1. Clone this repository. `$ git clone https://github.com/leandroportnoy/MyPersonalClis-App.git`
 2. Go to the project folder. `$ cd mypsersonalcli_api`
 3. execute npm start to run
 4. Access your browser with localhost:3000
@@ -42,14 +42,14 @@ Before you begin, ensure you have met the following requirements:
       - cancel signature
 
  Routes:
-  - defaut router
-  - signin (add new users)
-  - resert Password (under construction)
+  - default router
+  - sign in (add new users)
+  - reset Password (under construction)
 
 Project in Node using
   - Nodemon
   - Express
-  - Bodyparser
+  - Body parser
   - Mysql
 
 ## Contributors
@@ -65,4 +65,4 @@ If you want to contact me you can reach me at <leandroportnoy@gmail.com>.
 
 ## License
 
-all rights to reserv
+all rights to reserved

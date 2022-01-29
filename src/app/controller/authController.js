@@ -3,6 +3,7 @@ var HttpStatus = require('http-status-codes')
 var AuthService = require('../services/auth/index')
 var UserService = require('../services/user/index')
 
+
 exports.register = async function (req, res) {
     try { 
         if (await UserService.getUserByEmail(req))
