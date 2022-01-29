@@ -1,8 +1,7 @@
 # Sample Authentication Module
 
-<p align="center">
 ![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fbognarjunior.wordpress.com%2F2016%2F01%2F16%2Fnodejs-file-system-trabalhando-com-arquivos%2F&psig=AOvVaw1WYg4-sAwT2jYw1wbqpDGL&ust=1643574391912000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJCv9fHl1_UCFQAAAAAdAAAAABAK)
-</p>
+
 
 This project is a simple project using Node. This API is a simple example of how to authenticate, register and query users.
 
