@@ -1,6 +1,6 @@
 # Sample Authentication Module
 
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fbognarjunior.wordpress.com%2F2016%2F01%2F16%2Fnodejs-file-system-trabalhando-com-arquivos%2F&psig=AOvVaw1WYg4-sAwT2jYw1wbqpDGL&ust=1643574391912000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJCv9fHl1_UCFQAAAAAdAAAAABAK)
+![alt text](https://blog.dreamfactory.com/wp-content/uploads/2020/03/Image-2020-03-25-at-6.33.54-PM.png)
 
 
 This project is a simple project using Node. This API is a simple example of how to authenticate, register and query users.
